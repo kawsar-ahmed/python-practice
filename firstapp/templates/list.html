@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{%block content%}
+	<ul>
+		{%for item in list%}
+			<li>{{item}}</li>
+		{% endfor %}
+	</ul>
+	Your IP : {{ip}}<br />
+	Remote IP : {{Remote_ip}}
+{%endblock%}
+

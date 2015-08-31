@@ -1,0 +1,24 @@
+h1 {
+	background-color: #000000;
+    color: red;
+    text-align: center;
+}
+
+#div_id {
+	padding-left: 400px
+}
+
+ul {
+	list-style-image: url(arrow.png);
+	vertical-align: bottom;
+}
+
+ul li {
+	line-height: 40px;
+	vertical-align: top;
+}
+
+li {
+	color: green;
+	
+}

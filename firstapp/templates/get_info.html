@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+{% load filter-functions %}
+
+{% block content %}
+	<form method="post">
+		{% csrf_token %}
+        <table>
+			<tr>
+				<td>Name : </td>
+				<td> <input type='text' name='name'  /> </td>
+            </tr>
+			<tr>
+				<td>Age : </td>
+				<td> <input type='text' name='age' /> </td>
+            </tr>
+			<tr>
+            <td>Phone : </td>
+				<td> <input type='text' name='phone' /> </td>
+            </tr>
+			<tr>
+				<td>Email : </td>
+				<td> <input type='text' name='email' /> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td > <input type="submit" value="Submit" /> </td>
+            </tr>
+		</table>
+	</form>
+    {% if formData != None %}
+        <table>
+			{%for title,value in formData.items%}
+			<tr>
+				<td>{{title}} : </td>
+				{% if title == "phone" %}
+				<td> {{ value | check_number:"Invalid number"}} </td>
+				{%else %}
+				<td> {{ value | empty_check:"This is empty."}} </td>
+				{% endif %}
+			<tr>
+			{% endfor %}
+		</table>
+    {% endif %}
+{% endblock %}

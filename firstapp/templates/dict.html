@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+{% load filter-functions %}
+
+{%block content%}
+	<form>
+		<table>
+			{%for item,v in dictionary.items%}
+			<tr>
+				<td>{{item}} : </td>
+				{% if item == "phone" %}
+				<td> <input type='text' value='{{ v | check_number:"invalid number"}}' /> </td>
+				{%else %}
+				<td> <input type='text' value='{{ v | default_if_none:"This is empty."}}' /> </td>
+				{% endif %}
+			<tr>
+			{% endfor %}
+		</table>
+	</form>
+{%endblock%}
+
+    
